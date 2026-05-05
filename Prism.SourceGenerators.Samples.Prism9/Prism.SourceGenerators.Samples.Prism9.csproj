@@ -12,7 +12,10 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.DryIoc.Avalonia" Version="9.0.537.11130" />
-    <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.2.0" />
+    <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Avalonia" Version="11.3.14" />
     <PackageReference Include="Avalonia.Desktop" Version="11.3.14" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.14" />
