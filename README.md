@@ -7,7 +7,7 @@ Avalonia sample applications for **[MvvmAIO/Prism.SourceGenerators](https://gith
 | Project | Target | Prism | Notes |
 |---------|--------|-------|--------|
 | **Prism.SourceGenerators.Samples.Prism8** | `net8.0` | Prism.DryIoc.Avalonia 8.x + Prism.Core 8.1.97 | Includes **`MvvmAIO.Prism.Bcl.Commands`** for `AsyncDelegateCommand`. |
-| **Prism.SourceGenerators.Samples.Prism9** | `net10.0` | Prism 9 + Prism.Core 9.x | Uses framework `AsyncDelegateCommand`; **Polyfill** with **`PolyPublic`** per Polyfill guidance. |
+| **Prism.SourceGenerators.Samples.Prism9** | `net10.0` | Prism 9 + Prism.Core 9.x | Uses framework `AsyncDelegateCommand` (no Polyfill). |
 
 Both reference **`MvvmAIO.Prism.SourceGenerators`** from NuGet (version in each `.csproj`; bump when you adopt a newer release).
 
