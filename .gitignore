@@ -427,3 +427,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Local scratch — temporary projects, experiments, and other disposable files
+.Temp/
