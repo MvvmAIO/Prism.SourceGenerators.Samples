@@ -13,15 +13,25 @@
   <ItemGroup>
     <PackageReference Include="Prism.DryIoc.Avalonia" Version="8.1.97.11073" />
     <PackageReference Include="Tmds.DBus.Protocol" Version="0.92.0" />
-    <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.3.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="MvvmAIO.Prism.Bcl.Commands" Version="0.3.0" />
     <PackageReference Include="Avalonia" Version="11.0.7" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.7" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.7" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseLocalPrismSourceGenerators)' == 'true'">
+    <ProjectReference Include="$(PrismSourceGeneratorsRepoRoot)/Prism.SourceGenerators.Core/Prism.SourceGenerators.Core.csproj" />
+    <ProjectReference Include="$(PrismSourceGeneratorsRepoRoot)/Prism.SourceGenerators.Roslyn4120/Prism.SourceGenerators.Roslyn4120.csproj">
+      <OutputItemType>Analyzer</OutputItemType>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(UseLocalPrismSourceGenerators)' != 'true'">
+    <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

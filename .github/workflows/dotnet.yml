@@ -16,6 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: samples
+
+      # Sibling layout expected by samples/Directory.Build.props (../Prism.SourceGenerators).
+      - uses: actions/checkout@v4
+        with:
+          repository: MvvmAIO/Prism.SourceGenerators
+          path: Prism.SourceGenerators
 
       - name: Setup .NET 8
         uses: actions/setup-dotnet@v4
@@ -28,4 +36,5 @@ jobs:
           dotnet-version: 10.0.x
 
       - name: Restore and build
+        working-directory: samples
         run: dotnet build Prism.SourceGenerators.Samples.slnx -c Release --verbosity minimal

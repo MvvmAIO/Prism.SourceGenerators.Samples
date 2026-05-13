@@ -3,5 +3,23 @@
              x:Class="Prism.SourceGenerators.Samples.Prism9.App">
   <Application.Styles>
     <FluentTheme />
+    <!-- IndeiValidationPlugin passes ValidationResult as ErrorData; there is no ErrorContent. -->
+    <Style Selector="DataValidationErrors">
+      <Setter Property="ErrorTemplate">
+        <DataTemplate>
+          <ItemsControl ItemsSource="{Binding}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Foreground="#B91C1C"
+                           FontSize="12"
+                           Margin="0,2,0,0"
+                           TextWrapping="Wrap"
+                           Text="{Binding ErrorMessage}" />
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </DataTemplate>
+      </Setter>
+    </Style>
   </Application.Styles>
 </Application>

@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <!-- Sibling clone: ../Prism.SourceGenerators (same parent folder as this repo). -->
+    <PrismSourceGeneratorsRepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)../Prism.SourceGenerators'))</PrismSourceGeneratorsRepoRoot>
+    <PrismSourceGeneratorsLocalAvailable Condition="Exists('$(PrismSourceGeneratorsRepoRoot)/Prism.SourceGenerators.Core/Prism.SourceGenerators.Core.csproj')">true</PrismSourceGeneratorsLocalAvailable>
+    <UseLocalPrismSourceGenerators Condition="'$(UseLocalPrismSourceGenerators)' == '' and '$(PrismSourceGeneratorsLocalAvailable)' == 'true'">true</UseLocalPrismSourceGenerators>
+    <UseLocalPrismSourceGenerators Condition="'$(UseLocalPrismSourceGenerators)' == ''">false</UseLocalPrismSourceGenerators>
+  </PropertyGroup>
+</Project>
