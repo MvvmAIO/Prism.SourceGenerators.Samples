@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Prism.SourceGenerators.Samples.Prism8.Views.ValidationAttributeDemoView">
+  <StackPanel Margin="24" Spacing="16">
+    <TextBlock Text="[BindableValidator] Attribute (no inheritance)"
+               FontSize="20"
+               FontWeight="SemiBold" />
+    <TextBlock TextWrapping="Wrap"
+               FontSize="13"
+               Foreground="Gray"
+               Text="Approach B: annotate with [BindableValidator] instead of inheriting BindableValidator directly. The generator synthesizes the base class inline — no explicit base type needed. Uses field targets (C# 12 / Prism 8)." />
+
+    <StackPanel Spacing="6">
+      <TextBlock Text="Name" FontWeight="SemiBold" />
+      <TextBox Text="{Binding Name, Mode=TwoWay}" Watermark="3–20 characters" />
+    </StackPanel>
+
+    <StackPanel Spacing="6">
+      <TextBlock Text="Age" FontWeight="SemiBold" />
+      <TextBox Text="{Binding Age, Mode=TwoWay}" Watermark="1–120" />
+    </StackPanel>
+
+    <TextBlock Text="{Binding HasErrorsSummary}" FontSize="13" />
+
+    <StackPanel Orientation="Horizontal" Spacing="12">
+      <Button Content="Validate all properties" Command="{Binding ValidateAllCommand}" />
+      <Button Content="Clear all errors" Command="{Binding ClearAllCommand}" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -32,5 +32,6 @@ public partial class App : PrismApplication
         containerRegistry.RegisterForNavigation<CommandsView, CommandsViewModel>("Commands");
         containerRegistry.RegisterForNavigation<ProfileView, ProfileViewModel>("Profile");
         containerRegistry.RegisterForNavigation<ValidationDemoView, ValidationDemoViewModel>("Validation");
+        containerRegistry.RegisterForNavigation<ValidationAttributeDemoView, ValidationAttributeDemoViewModel>("ValidationAttr");
     }
 }
