@@ -26,7 +26,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition="'$(UseLocalPrismSourceGenerators)' != 'true'">
-    <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.3.0">
+    <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
