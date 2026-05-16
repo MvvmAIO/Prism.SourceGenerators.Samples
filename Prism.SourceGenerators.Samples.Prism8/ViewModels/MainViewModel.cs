@@ -16,7 +16,8 @@ public partial class MainViewModel : BindableBase
     [
         new("Dashboard", "Dashboard", "Overview and Prism region navigation."),
         new("Commands", "Commands", "DelegateCommand and AsyncDelegateCommand generation."),
-        new("Profile", "Profile", "ObservableProperty on backing fields.")
+        new("Profile", "Profile", "ObservableProperty on backing fields."),
+        new("Validation", "Validation", "BindableValidator + [NotifyDataErrorInfo] on field targets.")
     ];
 
     [ObservableProperty]

@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Prism.SourceGenerators.Samples.Prism8.Views.ValidationDemoView">
+  <StackPanel Margin="24" Spacing="16">
+    <TextBlock Text="BindableValidator + [NotifyDataErrorInfo]"
+               FontSize="20"
+               FontWeight="SemiBold" />
+    <TextBlock TextWrapping="Wrap"
+               FontSize="13"
+               Foreground="Gray"
+               Text="Field targets (C# 12 / Prism 8): DataAnnotations on fields are forwarded to the generated property. Generator emits ValidateProperty in the setter. Lines below mirror GetErrors." />
+
+    <StackPanel Spacing="6">
+      <TextBlock Text="Username" FontWeight="SemiBold" />
+      <TextBox Text="{Binding Username, Mode=TwoWay}" Watermark="2+ characters" />
+      <TextBlock Text="{Binding UsernameErrors}"
+                 Foreground="DarkRed"
+                 FontSize="12"
+                 TextWrapping="Wrap" />
+    </StackPanel>
+
+    <StackPanel Spacing="6">
+      <TextBlock Text="Email" FontWeight="SemiBold" />
+      <TextBox Text="{Binding Email, Mode=TwoWay}" Watermark="name@example.com" />
+      <TextBlock Text="{Binding EmailErrors}"
+                 Foreground="DarkRed"
+                 FontSize="12"
+                 TextWrapping="Wrap" />
+    </StackPanel>
+
+    <TextBlock Text="{Binding HasErrorsSummary}" FontSize="13" />
+
+    <StackPanel Orientation="Horizontal" Spacing="12">
+      <Button Content="Validate all properties" Command="{Binding ValidateAllCommand}" />
+      <Button Content="Clear all errors" Command="{Binding ClearAllCommand}" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>
