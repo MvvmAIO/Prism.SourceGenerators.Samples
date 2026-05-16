@@ -16,28 +16,14 @@ public partial class ValidationDemoViewModel : BindableValidator
 {
     public ValidationDemoViewModel()
     {
-        ErrorsChanged += OnErrorsChanged;
         ValidateAllProperties();
     }
-
-    private void OnErrorsChanged(object? sender, DataErrorsChangedEventArgs e)
-    {
-        string? name = e.PropertyName;
-        if (string.IsNullOrEmpty(name) || name == nameof(Username))
-            RaisePropertyChanged(nameof(UsernameErrors));
-        if (string.IsNullOrEmpty(name) || name == nameof(Email))
-            RaisePropertyChanged(nameof(EmailErrors));
-        RaisePropertyChanged(nameof(HasErrorsSummary));
-    }
-
-    partial void OnUsernameChanged(string value) => RaisePropertyChanged(nameof(UsernameErrors));
-
-    partial void OnEmailChanged(string value) => RaisePropertyChanged(nameof(EmailErrors));
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [Required(ErrorMessage = "Username is required.")]
     [MinLength(2, ErrorMessage = "Username must be at least 2 characters.")]
+    [MaxLength(16, ErrorMessage = "Username must be at most 16 characters.")]
     public partial string Username { get; set; } = "";
 
     [ObservableProperty]
@@ -45,10 +31,6 @@ public partial class ValidationDemoViewModel : BindableValidator
     [Required(ErrorMessage = "Email is required.")]
     [EmailAddress(ErrorMessage = "Enter a valid email address.")]
     public partial string Email { get; set; } = "";
-
-    public string UsernameErrors => FormatErrors(GetErrors(nameof(Username)));
-
-    public string EmailErrors => FormatErrors(GetErrors(nameof(Email)));
 
     public string HasErrorsSummary => HasErrors ? "Validation: errors present." : "Validation: no errors.";
 
@@ -62,12 +44,5 @@ public partial class ValidationDemoViewModel : BindableValidator
     private void ClearAll()
     {
         ClearAllErrors();
-    }
-
-    private static string FormatErrors(IEnumerable errors)
-    {
-        return string.Join(
-            "; ",
-            errors.Cast<ValidationResult>().Select(r => r.ErrorMessage).OfType<string>());
     }
 }

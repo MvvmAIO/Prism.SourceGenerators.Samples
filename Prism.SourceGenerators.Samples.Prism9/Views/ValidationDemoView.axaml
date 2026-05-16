@@ -13,19 +13,11 @@
     <StackPanel Spacing="6">
       <TextBlock Text="Username" FontWeight="SemiBold" />
       <TextBox Text="{Binding Username, Mode=TwoWay}" Watermark="2+ characters" />
-      <TextBlock Text="{Binding UsernameErrors}"
-                 Foreground="DarkRed"
-                 FontSize="12"
-                 TextWrapping="Wrap" />
     </StackPanel>
 
     <StackPanel Spacing="6">
       <TextBlock Text="Email" FontWeight="SemiBold" />
       <TextBox Text="{Binding Email, Mode=TwoWay}" Watermark="name@example.com" />
-      <TextBlock Text="{Binding EmailErrors}"
-                 Foreground="DarkRed"
-                 FontSize="12"
-                 TextWrapping="Wrap" />
     </StackPanel>
 
     <TextBlock Text="{Binding HasErrorsSummary}" FontSize="13" />
