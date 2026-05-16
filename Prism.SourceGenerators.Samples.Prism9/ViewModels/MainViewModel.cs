@@ -20,7 +20,8 @@ public partial class MainViewModel : BindableBase
         new("Dashboard", "Dashboard", "Overview and Prism region navigation."),
         new("Commands", "Commands", "DelegateCommand and AsyncDelegateCommand generation."),
         new("Profile", "Profile", "ObservableProperty on partial properties (C# 14)."),
-        new("Validation", "Validation", "BindableValidator, [NotifyDataErrorInfo], and DataAnnotations.")
+        new("Validation", "Validation", "BindableValidator, [NotifyDataErrorInfo], and DataAnnotations."),
+        new("ValidationAttr", "ValidationAttr", "[BindableValidator] attribute — generate base class without explicit inheritance.")
     ];
 
     [ObservableProperty]
