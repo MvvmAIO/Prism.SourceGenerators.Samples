@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Prism.DryIoc.Avalonia" Version="8.1.97.11073" />
     <PackageReference Include="Tmds.DBus.Protocol" Version="0.93.0" />
-    <PackageReference Include="MvvmAIO.Prism.Bcl.Commands" Version="0.4.2" />
+    <PackageReference Include="MvvmAIO.Prism.Bcl.Commands" Version="0.4.1" />
     <PackageReference Include="Avalonia" Version="11.0.7" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.7" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.7" />
