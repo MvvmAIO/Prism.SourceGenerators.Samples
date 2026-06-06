@@ -430,3 +430,4 @@ FodyWeavers.xsd
 
 # Local scratch — temporary projects, experiments, and other disposable files
 .Temp/
+.Local/
