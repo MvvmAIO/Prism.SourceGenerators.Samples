@@ -1,26 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>Prism.SourceGenerators.Samples.Prism9</RootNamespace>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>Prism.SourceGenerators.Samples.Uno</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>14.0</LangVersion>
-    <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.DryIoc.Avalonia" Version="9.0.537.11130" />
-    <PackageReference Include="Avalonia" Version="11.3.14" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.3.14" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.14" />
     <PackageReference Include="Prism.Core" Version="9.0.537" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(UseLocalPrismSourceGenerators)' == 'true'">
     <ProjectReference Include="$(PrismSourceGeneratorsRepoRoot)/Prism.SourceGenerators.Core/Prism.SourceGenerators.Core.csproj" />
-    <ProjectReference Include="$(PrismSourceGeneratorsRepoRoot)/Prism.SourceGenerators.Roslyn5000/Prism.SourceGenerators.Roslyn5000.csproj">
+    <ProjectReference Include="$(PrismSourceGeneratorsRepoRoot)/Prism.SourceGenerators.Roslyn4120/Prism.SourceGenerators.Roslyn4120.csproj">
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

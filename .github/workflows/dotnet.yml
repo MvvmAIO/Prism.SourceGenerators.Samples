@@ -12,14 +12,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-cross:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
         with:
           path: samples
 
-      # Sibling layout expected by samples/Directory.Build.props (../Prism.SourceGenerators).
       - uses: actions/checkout@v6
         with:
           repository: MvvmAIO/Prism.SourceGenerators
@@ -35,6 +34,31 @@ jobs:
         with:
           dotnet-version: 10.0.x
 
-      - name: Restore and build
+      - name: Restore and build (cross-platform)
         working-directory: samples
-        run: dotnet build Prism.SourceGenerators.Samples.slnx -c Release --verbosity minimal
+        run: |
+          dotnet build Prism.SourceGenerators.Samples.Prism8/Prism.SourceGenerators.Samples.Prism8.csproj -c Release --verbosity minimal
+          dotnet build Prism.SourceGenerators.Samples.Prism9/Prism.SourceGenerators.Samples.Prism9.csproj -c Release --verbosity minimal
+          dotnet build Prism.SourceGenerators.Samples.Maui/Prism.SourceGenerators.Samples.Maui.csproj -c Release --verbosity minimal
+          dotnet build Prism.SourceGenerators.Samples.Uno/Prism.SourceGenerators.Samples.Uno.csproj -c Release --verbosity minimal
+
+  build-wpf:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          path: samples
+
+      - uses: actions/checkout@v6
+        with:
+          repository: MvvmAIO/Prism.SourceGenerators
+          path: Prism.SourceGenerators
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build WPF sample
+        working-directory: samples
+        run: dotnet build Prism.SourceGenerators.Samples.Wpf/Prism.SourceGenerators.Samples.Wpf.csproj -c Release --verbosity minimal

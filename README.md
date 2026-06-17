@@ -1,6 +1,6 @@
 # Prism.SourceGenerators.Samples
 
-Avalonia sample applications for **[MvvmAIO/Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceGenerators)**.
+Sample applications and **headless ViewModel libraries** for **[MvvmAIO/Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceGenerators)**.
 
 ## Generator reference: NuGet or local repo
 
@@ -8,33 +8,34 @@ Avalonia sample applications for **[MvvmAIO/Prism.SourceGenerators](https://gith
 
 Override: `dotnet build -p:UseLocalPrismSourceGenerators=false` (force NuGet) or `=true` (force local). Details: **`build/README-LocalSourceGenerators.md`**.
 
-**NuGet-only** (no sibling repo): the Prism 9 **Validation** sample uses **`BindableValidator`** and **`[NotifyDataErrorInfo]`** from **`MvvmAIO.Prism.Core`**. If your installed **`MvvmAIO.Prism.SourceGenerators`** / Core version is older than that API, clone **[Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceGenerators)** next to this repo or bump package versions.
-
 ## Projects
 
-| Project | Target | Prism | Notes |
-|---------|--------|-------|--------|
-| **Prism.SourceGenerators.Samples.Prism8** | `net8.0` | Prism.DryIoc.Avalonia 8.x + Prism.Core 8.1.97 | Includes **`MvvmAIO.Prism.Bcl.Commands`** for `AsyncDelegateCommand`. |
-| **Prism.SourceGenerators.Samples.Prism9** | `net10.0` | Prism 9 + Prism.Core 9.x | Framework `AsyncDelegateCommand`. **Validation** region: `BindableValidator`, `[NotifyDataErrorInfo]`, DataAnnotations. |
+| Project | Target | Platform | Notes |
+|---------|--------|----------|--------|
+| **Prism.SourceGenerators.Samples.Prism8** | `net8.0` | Avalonia | Prism 8.1.97 + **`MvvmAIO.Prism.Bcl.Commands`**. |
+| **Prism.SourceGenerators.Samples.Prism9** | `net10.0` | Avalonia | Prism 9; validation demos with `BindableValidator`. |
+| **Prism.SourceGenerators.Samples.Wpf** | `net8.0-windows` | WPF | Minimal shell; field-backed `[ObservableProperty]`. |
+| **Prism.SourceGenerators.Samples.Maui** | `net9.0` | .NET MAUI (ViewModels) | Headless library; wire into `Prism.DryIoc.Maui`. See project **`README.md`**. |
+| **Prism.SourceGenerators.Samples.Uno** | `net9.0` | Uno / WinUI (ViewModels) | Headless compatibility library with `[NavigationAware]`. |
 
-When using **NuGet** for the generators package, bump **`MvvmAIO.Prism.SourceGenerators`** (and **`MvvmAIO.Prism.Bcl.Commands`** on Prism 8) in each `.csproj` when you adopt a newer release.
+CI: **Linux** builds Avalonia + headless libraries; **Windows** builds WPF. See **`build/README-PlatformSamples.md`**.
 
-The Prism 9 app uses **explicit** `IContainerRegistry` registrations in `App.axaml.cs` (same style as the Prism 8 sample). Attribute-driven registration demos also live in the [generator repository](https://github.com/MvvmAIO/Prism.SourceGenerators) tests and sources.
+When using **NuGet**, bump **`MvvmAIO.Prism.SourceGenerators`** (and **`MvvmAIO.Prism.Bcl.Commands`** on Prism 8) when adopting a new release.
 
 ## Build
 
-Requires a **.NET 10 SDK** (for the Prism 9 sample) and **.NET 8** workload/runtime as needed for `net8.0`.
+Requires **.NET 10 SDK** (Prism 9 sample) and **.NET 8** for `net8.0` / WPF.
 
 ```bash
 dotnet build Prism.SourceGenerators.Samples.slnx
 ```
 
-Open **`Prism.SourceGenerators.Samples.slnx`** in Visual Studio 2022 **17.13+** or Rider (`.slnx` support).
+On Linux, exclude WPF or build it on Windows only.
 
 ## Related
 
-- Generator repo & documentation: [Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceGenerators)  
-- Wiki (中文): [Prism.SourceGenerators Wiki](https://github.com/MvvmAIO/Prism.SourceGenerators/wiki)
+- [Documentation site](https://mvvmaio.github.io/Prism.SourceGenerators.Docs/)
+- [Ecosystem positioning](https://mvvmaio.github.io/Prism.SourceGenerators.Docs/positioning)
 
 ## License
 
