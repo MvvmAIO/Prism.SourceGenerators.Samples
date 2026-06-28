@@ -13,7 +13,7 @@ Override: `dotnet build -p:UseLocalPrismSourceGenerators=false` (force NuGet) or
 | Project | Target | Platform | Notes |
 |---------|--------|----------|--------|
 | **Prism.SourceGenerators.Samples.Prism8** | `net8.0` | Avalonia | Prism 8.1.97 + **`MvvmAIO.Prism.Bcl.Commands`**. |
-| **Prism.SourceGenerators.Samples.Prism9** | `net10.0` | Avalonia | Prism 9; validation demos with `BindableValidator`. |
+| **Prism.SourceGenerators.Samples.Prism9** | `net10.0` | Avalonia | Prism 9; validation, region navigation, and dialog demos. |
 | **Prism.SourceGenerators.Samples.Wpf** | `net8.0-windows` | WPF | Minimal shell; field-backed `[ObservableProperty]`. |
 | **Prism.SourceGenerators.Samples.Maui** | `net9.0` | .NET MAUI (ViewModels) | Headless library; wire into `Prism.DryIoc.Maui`. See project **`README.md`**. |
 | **Prism.SourceGenerators.Samples.Uno** | `net9.0` | Uno / WinUI (ViewModels) | Headless compatibility library with `[NavigationAware]`. |

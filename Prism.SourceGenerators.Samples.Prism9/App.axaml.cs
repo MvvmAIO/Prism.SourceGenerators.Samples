@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Markup.Xaml;
 using Prism.DryIoc;
 using Prism.Ioc;
+using Prism.SourceGenerators;
 using Prism.SourceGenerators.Samples.Prism9.Services;
 using Prism.SourceGenerators.Samples.Prism9.ViewModels;
 using Prism.SourceGenerators.Samples.Prism9.Views;
@@ -29,10 +30,6 @@ public partial class App : PrismApplication
         containerRegistry.RegisterSingleton<ISettingsService, SettingsService>();
         containerRegistry.RegisterSingleton<IDateTimeProvider, SystemDateTimeProvider>();
 
-        containerRegistry.RegisterForNavigation<DashboardView, DashboardViewModel>("Dashboard");
-        containerRegistry.RegisterForNavigation<CommandsView, CommandsViewModel>("Commands");
-        containerRegistry.RegisterForNavigation<ProfileView, ProfileViewModel>("Profile");
-        containerRegistry.RegisterForNavigation<ValidationDemoView, ValidationDemoViewModel>("Validation");
-        containerRegistry.RegisterForNavigation<ValidationAttributeDemoView, ValidationAttributeDemoViewModel>("ValidationAttr");
+        containerRegistry.RegisterGeneratedTypes();
     }
 }
