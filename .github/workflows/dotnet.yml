@@ -15,11 +15,11 @@ jobs:
   build-cross:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           path: samples
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: MvvmAIO/Prism.SourceGenerators
           path: Prism.SourceGenerators
@@ -45,11 +45,11 @@ jobs:
   build-wpf:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           path: samples
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: MvvmAIO/Prism.SourceGenerators
           path: Prism.SourceGenerators
