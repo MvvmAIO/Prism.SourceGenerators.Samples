@@ -91,6 +91,14 @@ public partial class CommandsViewModel : BindableBase
 
     partial void OnConfirmDeleteDialogClosed(IDialogResult result)
     {
-        StatusMessage = $"Dialog closed: {result.Result}";
+        // Check ButtonResult to distinguish OK from Cancel in real-world usage.
+        if (result.Result == ButtonResult.OK)
+        {
+            StatusMessage = "User confirmed deletion.";
+        }
+        else
+        {
+            StatusMessage = $"Dialog dismissed: {result.Result}";
+        }
     }
 }
