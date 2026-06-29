@@ -5,10 +5,10 @@ using Prism.SourceGenerators.Samples.Prism9.ViewModels;
 
 namespace Prism.SourceGenerators.Samples.Prism9.Views;
 
-[RegisterForNavigation<CommandsViewModel>(Name = "Commands")]
-public partial class CommandsView : UserControl
+[RegisterDialog<ConfirmDialogViewModel>(Name = "ConfirmDelete")]
+public partial class ConfirmDialogView : UserControl
 {
-    public CommandsView()
+    public ConfirmDialogView()
     {
         InitializeComponent();
     }

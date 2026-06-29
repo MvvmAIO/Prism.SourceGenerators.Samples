@@ -1,9 +1,11 @@
 using Prism.Mvvm;
+using Prism.Navigation.Regions;
 using Prism.SourceGenerators;
 using Prism.SourceGenerators.Samples.Prism9.Services;
 
 namespace Prism.SourceGenerators.Samples.Prism9.ViewModels;
 
+[NavigationAware]
 public partial class DashboardViewModel : BindableBase
 {
     [ObservableProperty]
@@ -13,9 +15,19 @@ public partial class DashboardViewModel : BindableBase
     public partial string Body { get; set; } =
         "This view is shown via Prism region navigation (IRegionManager.RequestNavigate).";
 
+    [ObservableProperty]
+    public partial string NavigationNote { get; set; } = "";
+
     public DashboardViewModel(ISettingsService settings, IDateTimeProvider clock)
     {
         Body =
             $"{settings.AppSectionTitle} Resolved services: {clock.Now:yyyy-MM-dd HH:mm} (from IDateTimeProvider).";
+    }
+
+    partial void OnNavigatedToCore(NavigationContext navigationContext)
+    {
+        // navigationContext.Uri may be empty depending on how navigation was triggered
+        // (e.g. region name-only navigation vs. parameterized URI navigation).
+        NavigationNote = $"OnNavigatedToCore @ {navigationContext.Uri}";
     }
 }

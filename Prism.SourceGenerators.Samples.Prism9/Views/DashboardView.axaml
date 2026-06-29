@@ -4,5 +4,6 @@
   <StackPanel Margin="24" Spacing="12">
     <TextBlock Text="{Binding Headline}" FontSize="20" FontWeight="SemiBold" />
     <TextBlock Text="{Binding Body}" FontSize="14" TextWrapping="Wrap" />
+    <TextBlock Text="{Binding NavigationNote}" FontSize="12" Foreground="Gray" TextWrapping="Wrap" />
   </StackPanel>
 </UserControl>

@@ -1,13 +1,20 @@
 using System;
 using System.Threading.Tasks;
+using Prism.Dialogs;
 using Prism.Mvvm;
 using Prism.SourceGenerators;
-
 namespace Prism.SourceGenerators.Samples.Prism9.ViewModels;
 
 /// <summary>Demonstrates generated commands in a dedicated navigable view.</summary>
 public partial class CommandsViewModel : BindableBase
 {
+    private readonly IDialogService _dialogService;
+
+    public CommandsViewModel(IDialogService dialogService)
+    {
+        _dialogService = dialogService;
+    }
+
     [ObservableProperty]
     public partial string Title { get; set; } = "Commands sample";
 
@@ -77,5 +84,21 @@ public partial class CommandsViewModel : BindableBase
     private void HandleSaveError(Exception ex)
     {
         StatusMessage = $"Save failed: {ex.Message}";
+    }
+
+    [ShowDialogCommand(Name = "ConfirmDelete")]
+    private void ConfirmDelete() { }
+
+    partial void OnConfirmDeleteDialogClosed(IDialogResult result)
+    {
+        // Check ButtonResult to distinguish OK from Cancel in real-world usage.
+        if (result.Result == ButtonResult.OK)
+        {
+            StatusMessage = "User confirmed deletion.";
+        }
+        else
+        {
+            StatusMessage = $"Dialog dismissed: {result.Result}";
+        }
     }
 }
