@@ -37,6 +37,11 @@ On Linux, exclude WPF or build it on Windows only.
 - [Documentation site](https://mvvmaio.github.io/Prism.SourceGenerators.Docs/)
 - [Ecosystem positioning](https://mvvmaio.github.io/Prism.SourceGenerators.Docs/positioning)
 
+## Recommended patterns
+
+- **Region navigation:** prefer **`[RegisterForNavigation]`** on the **view code-behind** (not the ViewModel) to register views for navigation. The Prism 9 sample demonstrates this in `DashboardView.axaml.cs`, `CommandsView.axaml.cs`, etc.
+- **Dialogs:** use **`[RegisterDialog]`** on the dialog view code-behind to register dialog ViewModels with the container.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).

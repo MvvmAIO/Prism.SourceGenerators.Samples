@@ -26,6 +26,8 @@ public partial class DashboardViewModel : BindableBase
 
     partial void OnNavigatedToCore(NavigationContext navigationContext)
     {
+        // navigationContext.Uri may be empty depending on how navigation was triggered
+        // (e.g. region name-only navigation vs. parameterized URI navigation).
         NavigationNote = $"OnNavigatedToCore @ {navigationContext.Uri}";
     }
 }

@@ -10,6 +10,8 @@ public partial class ConfirmDialogViewModel : BindableBase
     [ObservableProperty]
     public partial string Message { get; set; } = "Delete this item?";
 
+    // Prism 9 syntax: RequestClose is a DialogCloseListener that uses Invoke(ButtonResult).
+    // Prism 8 would use: RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
     [DelegateCommand]
     private void Ok()
     {
