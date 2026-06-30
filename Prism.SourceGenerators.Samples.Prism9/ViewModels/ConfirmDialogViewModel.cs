@@ -7,6 +7,10 @@ namespace Prism.SourceGenerators.Samples.Prism9.ViewModels;
 [DialogAware(Title = "Confirm delete")]
 public partial class ConfirmDialogViewModel : BindableBase
 {
+    // The [FromDialogParameter] attribute reads the value from
+    // IDialogParameters via TryGetValue<T> and assigns it
+    // before OnDialogOpenedCore is called.
+    [FromDialogParameter("message")]
     [ObservableProperty]
     public partial string Message { get; set; } = "Delete this item?";
 
@@ -22,15 +26,5 @@ public partial class ConfirmDialogViewModel : BindableBase
     private void Cancel()
     {
         RequestClose.Invoke(ButtonResult.Cancel);
-    }
-
-    partial void OnDialogOpenedCore(IDialogParameters parameters)
-    {
-        if (parameters is DialogParameters dialogParameters
-            && dialogParameters.TryGetValue<string>("message", out var message)
-            && !string.IsNullOrWhiteSpace(message))
-        {
-            Message = message;
-        }
     }
 }
