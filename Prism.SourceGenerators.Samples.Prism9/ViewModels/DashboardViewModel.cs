@@ -18,6 +18,13 @@ public partial class DashboardViewModel : BindableBase
     [ObservableProperty]
     public partial string NavigationNote { get; set; } = "";
 
+    // The [FromNavigationParameter] attribute reads the value from
+    // NavigationContext.Parameters via TryGetValue<T> and assigns it
+    // before OnNavigatedToCore is called.
+    [FromNavigationParameter("userId")]
+    [ObservableProperty]
+    public partial int UserId { get; set; }
+
     public DashboardViewModel(ISettingsService settings, IDateTimeProvider clock)
     {
         Body =
