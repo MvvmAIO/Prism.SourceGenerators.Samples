@@ -1,5 +1,7 @@
 # Prism.SourceGenerators.Samples
 
+**English** | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md)
+
 Sample applications and **headless ViewModel libraries** for **[MvvmAIO/Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceGenerators)**.
 
 ## Generator reference: NuGet or local repo
